@@ -10,7 +10,7 @@ function Footer() {
           <p>
             Lorem ipsum dolor, sit amet consectetur adipisicing elit. Officiis
             in obcaecati corporis nemo eaque voluptatum, labore perspiciatis
-            aliquam praesentium odio officia ut, maxime voluptate quibusdam!{' '}
+            aliquam praesentium odio officia ut, maxime voluptate quibusdam!
           </p>
           <div className='footer-social-icons'>
             <img src={assets.facebook_icon} alt='icon pic' />
@@ -36,6 +36,10 @@ function Footer() {
         </div>
       </div>
       <hr />
+      <p className='footer-copyright'>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet 2024
+        (c) - All Right Reserved.
+      </p>
     </div>
   );
 }
