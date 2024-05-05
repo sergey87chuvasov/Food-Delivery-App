@@ -1,6 +1,7 @@
 import express from 'express';
 import cors from 'cors';
 import { connectDB } from './config/db.js';
+import foodRouter from './routes/foodRoute.js';
 
 // app config - init our app use express
 const app = express();
@@ -12,6 +13,9 @@ app.use(cors()); // access back from any front
 
 //db conn
 connectDB();
+
+// api endpoint
+app.use('/api/food', foodRouter);
 
 app.get('/', (req, res) => {
   res.send('API Work!');
