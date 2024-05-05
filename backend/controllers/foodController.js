@@ -12,6 +12,35 @@ const addFood = async (req, res) => {
     category: req.body.category,
     image: image_filename,
   });
+
+  try {
+    await food.save();
+    res.json({
+      success: true,
+      message: 'Food Added',
+    });
+  } catch (err) {
+    console.log(err);
+    res.json({
+      success: false,
+      message: 'Error',
+    });
+  }
 };
 
-export { addFood };
+// all food list
+const listFood = async (req, res) => {
+  const foods = await foodModel.find({});
+  res.json({
+    success: true,
+    data: foods,
+  });
+
+  try {
+  } catch (err) {
+    console.log(err);
+    res.json({ success: false, message: 'Error!' });
+  }
+};
+
+export { addFood, listFood };

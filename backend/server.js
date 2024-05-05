@@ -16,6 +16,7 @@ connectDB();
 
 // api endpoint
 app.use('/api/food', foodRouter);
+app.use('/images', express.static('uploads')); // folder name // http://localhost:4000/images/1714939310824food_17.png
 
 app.get('/', (req, res) => {
   res.send('API Work!');
