@@ -2,6 +2,7 @@ import express from 'express';
 import cors from 'cors';
 import { connectDB } from './config/db.js';
 import foodRouter from './routes/foodRoute.js';
+import userRouter from './routes/userRoute.js';
 
 // app config - init our app use express
 const app = express();
@@ -17,6 +18,7 @@ connectDB();
 // api endpoint
 app.use('/api/food', foodRouter);
 app.use('/images', express.static('uploads')); // folder name // http://localhost:4000/images/1714939310824food_17.png
+app.use('/api/user', userRouter); //
 
 app.get('/', (req, res) => {
   res.send('API Work!');
