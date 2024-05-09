@@ -7,9 +7,13 @@ import List from './pages/List/List';
 import Add from './pages/Add/Add';
 import Orders from './pages/Orders/Orders';
 
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 function App() {
   return (
     <div>
+      <ToastContainer />
       <Navbar />
       <hr />
       <div className='app-content'>
