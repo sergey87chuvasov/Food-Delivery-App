@@ -5,7 +5,7 @@ import { StoreContext } from '../../context/StoreContext';
 import axios from 'axios';
 
 function LoginPopup({ setShowLogin }) {
-  const { url } = useContext(StoreContext);
+  const { url, setToken } = useContext(StoreContext);
   const [currState, setCurrState] = useState('Login');
 
   // our data fo login
@@ -33,7 +33,15 @@ function LoginPopup({ setShowLogin }) {
       newUrl += '/api/user/register';
     }
 
-    const response = await axios;
+    const response = await axios.post(newUrl, data);
+
+    if (response.data.success) {
+      setToken(response.data.token);
+      localStorage.setItem('token', response.data.token);
+      setShowLogin(false);
+    } else {
+      alert(response.data.message);
+    }
   };
 
   // useEffect(() => {
@@ -60,7 +68,7 @@ function LoginPopup({ setShowLogin }) {
               name='name'
               onChange={onChangeHandler}
               value={data.name}
-              placeholder='Ypur Name'
+              placeholder='Your Name'
               required
             />
           )}
