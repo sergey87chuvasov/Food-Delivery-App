@@ -66,7 +66,7 @@ function Navbar({ setShowLogin }) {
           <div className='navbar-profile'>
             <img src={assets.profile_icon} alt='icon pic' />
             <ul className='nav-profile-dropdown'>
-              <li>
+              <li onClick={() => navigate('/myorders')}>
                 <img src={assets.bag_icon} alt='icon pic' />
                 <p>Orders</p>
               </li>
